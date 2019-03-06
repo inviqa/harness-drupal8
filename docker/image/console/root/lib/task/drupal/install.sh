@@ -21,8 +21,8 @@ function task_drupal_install()
         --account-mail=admin@example.com \
         --account-pass=admin123"
 
-    chmod 755 /app/web/sites/default
-    rm -f /app/web/sites/default/settings.php
+    chmod 755 /app/docroot/sites/default
+    rm -f /app/docroot/sites/default/settings.php
 
     task "skeleton:apply"
     task "assets:dump"

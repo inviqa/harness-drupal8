@@ -21,6 +21,8 @@ RUN . /home/build/.nvm/nvm.sh \
 USER root
 {% endif %}
 
+RUN chown build:build /home/build
+
 {% if @('app.build') == 'static' %}
 RUN chown build:build /app
 COPY --chown=build:build .my127ws/skeleton       /home/build/skeleton
