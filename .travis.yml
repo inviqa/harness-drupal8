@@ -7,13 +7,9 @@ php:
 services:
   - docker
 install:
-  - wget http://my127.io/workspace/ws && chmod +x ws && sudo mv ws /usr/local/bin/ws
+  - wget https://my127.io/workspace/ws && chmod +x ws && sudo mv ws /usr/local/bin/ws
 script:
-  - |
-    cd ../
-    ws create cms inviqa/drupal8 --no-install
-    cd cms
-    cp -ap "$TRAVIS_BUILD_DIR" ./.my127ws
-    ws install
-    ws destroy
+  - cd ../ && ws create cms inviqa/drupal8 --no-install && cd cms && cp -ap "$TRAVIS_BUILD_DIR" ./.my127ws
+  - ws install
+  - ws destroy
 
