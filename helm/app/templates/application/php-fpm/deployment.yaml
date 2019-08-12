@@ -35,7 +35,14 @@ spec:
             port: 9000
           initialDelaySeconds: 5
           periodSeconds: 10
+        volumeMounts:
+        - name: php-fpm-persistent-storage
+          mountPath: /app/docroot/sites/default/files
       imagePullSecrets:
       - name: docker-config
       restartPolicy: Always
+      volumes:
+      - name: php-fpm-persistent-storage
+        persistentVolumeClaim:
+          claimName: php-fpm-pv-claim
 status: {}
